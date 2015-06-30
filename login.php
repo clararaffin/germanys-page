@@ -6,7 +6,9 @@ $host_db = "localhost";
 $user_db = "user";		//user mysql
 $pass_db = "pass";		//pass mysql
 $db_name = "basededatos";
-$tbl_name = "tabladelabasededatos";	
+$tbl_name = "TabladeUsuarios";			//Nombre de la tabla que contenga a los usuarios
+$tbl_name_datos = "TabladeLibros";		//Nombre de la tabla que contenga a los libros
+
 
 // Connect to server and select databse.
 
@@ -17,6 +19,8 @@ mysql_select_db("$db_name")or die("Cannot Select Data Base");
 
 $username = $_POST['user'];
 $password = $_POST['pass'];
+
+// Reemplazar NombreUsuario y Password por los nombres de los campos de la tabla creada en mysql
 $sql= "SELECT * FROM $tbl_name WHERE NombreUsuario = '$username' and Password='$password'";
 $result=mysql_query($sql);
 
