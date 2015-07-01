@@ -3,12 +3,14 @@
 	<title>Mostrar libros con filtro</title>
 </head>
 <body>
-	
+
 </body>
 
 <?php
 require ('config.php');
-$registro = mysql_query("SELECT * FROM libros WHERE categoria = '".@$_GET['searchby']."'") or die ("No se encontro la base con el libro");
+echo $_GET['searchby'];
+echo $_GET['dato'];
+$registro = mysql_query("SELECT * FROM libros WHERE '".@$_GET['searchby']."' = '".@$_GET['dato']."'") or die ("No se encontro la base con el libro");
 while($reg=mysql_fetch_array($registro)){
 	echo "<br>",$reg['titulo'] ;
 	echo "<br>",$reg['autor'] ;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Register a account</title>
+		<title>Register an account</title>
 	</head>
 	<body>
 		<form action="register.php" method="POST">
