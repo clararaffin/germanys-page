@@ -20,7 +20,7 @@ while($reg=mysql_fetch_array($registro)){
 		echo "<br>",$reg['cantidad'] ;
 ?>
 <html>
-	<a href="buybook.php?nombre= <?php echo $reg['titulo'] ?> ">Comprar</a>
+	<a href="buybook.php?nombre=<?php echo $reg['titulo'] ?> ">Comprar</a>
 </html>
 <?php
 	}
