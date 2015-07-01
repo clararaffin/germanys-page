@@ -25,7 +25,7 @@ $year = @$_POST['year'];
 $descripcion = @$_POST['descripcion'];
 $cantidad = @$_POST['cantidad'];
 if (isset($_POST['submit'])){
-	if ($titulo && $autor && $year && $descripcion && $cantidad){
+	if ($titulo && $autor && $year && $descripcion && $cantidad !=""){
 		$query= mysql_query("INSERT INTO libros (`titulo`, `autor`,`categoria`,`year`,`descripcion`,`cantidad`) VALUES ('".$titulo."','".$autor."','".$categoria."','".$year."','".$descripcion."','".$cantidad."')");
 	}else{
 		echo "Complete los campos";

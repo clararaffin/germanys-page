@@ -8,7 +8,6 @@
 		Username: <input type="text" name="username" > <br />
 		Password: <input type="password" name="password" ><br />
 		Confirm password: <input type="password" name="repassword" ><br />
-		Email: <input type="text" name="email" ><br />
 		 <input type="submit" name="submit" value="Register"> or <a href="login.php">Login</a>
 		</form>
 	</body>
@@ -17,18 +16,17 @@
 	require('config.php');
 	$username = @$_POST['username'];
 	$password = @$_POST['password'];
-	$repass = @$_POST['repassword'];	
-	$email = @$_POST['email'];
+	$repass = @$_POST['repassword'];
 	$date = date("Y-m-d");
 	$pass_en = sha1($password);
 	if (isset($_POST['submit'])){
-		if ($username && $password && $repass && $email){
+		if ($username && $password && $repass){
 			$check = mysql_query("SELECT * FROM users WHERE username='".$username."'");
 			$rows = mysql_num_rows($check);
 			if(mysql_num_rows($check) == 0){
 				if ($repass==$password){
-					if($query= mysql_query("INSERT INTO users (`id`,`username`, `password`, `email`,`date`) VALUES ('', '".$username."', '".$pass_en."', '".$email."','".$date."')")){
-						echo "Succes";
+					if($query= mysql_query("INSERT INTO users (`id`,`username`, `password`,`date`) VALUES ('', '".$username."', '".$pass_en."','".$date."')")){
+						echo "Success";
 					}
 					else{
 					echo "Fail";

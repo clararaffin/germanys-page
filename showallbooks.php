@@ -13,8 +13,13 @@ while($reg=mysql_fetch_array($registro)){
 	echo "<br>",$reg['titulo'] ;
 	echo "<br>",$reg['autor'] ;
 	echo "<br>",$reg['categoria'] ;
-	echo "<br>",$reg['descripcion'] ;
-	echo "<br>",$reg['cantidad'] ;
+	echo "<br>",$reg['descripcion'];
+	if ($reg['cantidad']==0){
+  		echo "<br>No hay stock";
+ }
+ 	else
+		echo "<br>",$reg['cantidad'];
+		echo "<br> <a href="buybook.php">Comprar libro<a>";
 }
 ?>
 <html>
