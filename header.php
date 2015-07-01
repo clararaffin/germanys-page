@@ -6,17 +6,16 @@
 	<div id="menu-desp">
 		<ul id="hmenu">
 			<li><a href="index.php">Inicio</a></li>
-			<li><td><form action="findbook.php?searchby=<?php echo $_POST['searchby'] ?>&dato=<?php echo $_POST['dato'] ?>" method="POST">
-   Busqueda por Campo:<br/> 
-   <select name="searchby">    
-       <option value="titulo" selected="selected">Titulo</option>
-       <option value="autor">Autor</option>
-       <option value="categoria">Categoria</option>
-       <option value="year">Anio</option>
-   </select></td>
-   			<td><input type="text" name="dato"></td>
-   			<input type="submit" value="Buscar" name="submit">
-</form></li>
+			<li><form method="POST" action="findbook.php">
+  <input type="text" name="searchby">
+  <select name="op">
+   <option value="titulo">Titulo</option>
+   <option value="year">Anio</option>
+   <option value="autor">Autor</option>
+   <option value="categoria">Categoria</option>
+  </select>
+   <input type="submit" value="buscar">
+  </form></li>
 			<li><a href="index.php?action=logout">logout</a></li>
 	</div>
 </body>
