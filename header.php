@@ -6,7 +6,7 @@
 	<div id="menu-desp">
 		<ul id="hmenu">
 			<li><a href="index.php">Inicio</a></li>
-			<li><td><form action="findbook.php<?php echo $_POST['searchby'] ?>" method="POST">
+			<li><td><form action="findbook.php?searchby=<?php echo $_POST['searchby'] ?>&dato=<?php echo $_POST['dato'] ?>" method="POST">
    Busqueda por Campo:<br/> 
    <select name="searchby">    
        <option value="titulo" selected="selected">Titulo</option>
