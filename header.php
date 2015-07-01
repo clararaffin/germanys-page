@@ -8,9 +8,9 @@
 			<li><a href="index.php">Inicio</a></li>
 			<li><a href="index.php">Categorias</a>
 				<ul class="sub-menu">
-					<li><a href="">drama</a> </li>
-					<li><a href="">Ficcion</a> </li>
-					<li><a href="">algo</a> </li>
+					<li><a href="findbook.php?searchby=Drama">drama</a> </li>
+					<li><a href="findbook.php?searchby=Ficcion">Ficcion</a> </li>
+					<li><a href="findbook.php?searchby=Algo">algo</a> </li>
 				</ul>
 			</li>
 			<li><a href="index.php?action=logout">logout</a></li>
