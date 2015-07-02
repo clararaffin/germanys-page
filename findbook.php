@@ -33,10 +33,19 @@ body {
   $registro = mysql_query("SELECT * FROM libros WHERE $buscar='".$op."'" );
   if(mysql_num_rows($registro)){
   while($reg=mysql_fetch_array($registro)){
-   echo "<br>",$reg['titulo'] ;
-   echo "<br>",$reg['autor'] ;
-   echo "<br>",$reg['categoria'] ;
-   echo "<br>",$reg['descripcion'] ;
+
+    ?>
+
+    <html>
+  <h1><?php echo $reg['titulo']; ?></h1>
+   <h3><?php echo $reg['autor']; ?></h3>
+  <h4><?php echo $reg['categoria']; ?></h5>
+  <p><?php echo$reg['descripcion']; ?></p>
+  <br>
+
+  </html>
+
+   <?php
    if ($reg['cantidad'] && $_SESSION['username']) {
     ?>
     <html>

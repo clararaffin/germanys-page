@@ -25,31 +25,39 @@ body {
 </style>
 
 
-<?php
+<br>
+<br>
+<?php 
+
+include_once ('header.php');
 
 session_start();
-
 require ('config.php');
-$registro = mysql_query("SELECT * FROM libros") or  die ("No se encontro la base con los libros");
-while($reg=mysql_fetch_array($registro)){
-	?>
 
-<html>
-	<div class="container marketing">
-	<div class="row">
-              <div class="col-lg-4">
-              <img class="img-circle" src="Discours_de_la_méthode.jpg" alt="Generic placeholder image" width="140" height="144">
-                <h2> <?php echo $reg['titulo']; ?></h2>
-                <h3> <?php echo $reg['autor']; ?></h4>
-                <h4> <?php echo $reg['categoria']; ?></h4>
-                <p><?php echo $reg['descripcion']; ?></p>
-        <?php
-		if ($_SESSION["username"] && $reg['cantidad']){
+
+$registro = mysql_query("SELECT * FROM users WHERE username='".$_SESSION["username"]."'");
+if(mysql_num_rows($registro)){
+	while($reg=mysql_fetch_array($registro)){
+
+
 		?>
-                <p><a class="btn btn-primary" href="buybook.php?nombre=<?php echo $reg['titulo'] ?>" role="button">Comprar &raquo;</a></p>
-              </div>
-</html>
-<?php
+		<html><h1>Libros comprados por <?php echo $reg['username']; ?></h1><br></html>
+
+		<?php
 	}
 }
+
+$registro = mysql_query("SELECT * FROM ventas WHERE idusername='".$_SESSION["username"]."'" );
+if(mysql_num_rows($registro)){
+	while($reg=mysql_fetch_array($registro)){
+		
+?>
+
+	<html>
+		<h3><?php echo $reg['libro']; ?><h3></html>
+		<?php
+	}
+}
+
+
 ?>
