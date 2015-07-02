@@ -25,15 +25,60 @@ body {
 }
 </style>
 
-	<body>
-		<form action="register.php" method="POST">
-		Username: <input type="text" name="username" > <br />
-		Password: <input type="password" name="password" ><br />
-		Confirm password: <input type="password" name="repassword" ><br />
-		 <input type="submit" name="submit" value="Register"> or <a href="login.php">Login</a>
-		</form>
-	</body>
-</html>
+<style>
+              body {
+                padding-top: 40px;
+                padding-bottom: 40px;
+                background-color: #eee;
+              }
+
+              .form-signin {
+                max-width: 330px;
+                padding: 15px;
+                margin: 0 auto;
+              }
+              .form-signin .form-signin-heading,
+              .form-signin .checkbox {
+                margin-bottom: 10px;
+              }
+              .form-signin .checkbox {
+                font-weight: normal;
+              }
+              .form-signin .form-control {
+                position: relative;
+                height: auto;
+                -webkit-box-sizing: border-box;
+                   -moz-box-sizing: border-box;
+                        box-sizing: border-box;
+                padding: 10px;
+                font-size: 16px;
+              }
+              .form-signin .form-control:focus {
+                z-index: 2;
+              }
+              .form-signin input[type="email"] {
+                margin-bottom: -1px;
+                border-bottom-right-radius: 0;
+                border-bottom-left-radius: 0;
+              }
+              .form-signin input[type="password"] {
+                margin-bottom: 10px;
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+              }
+            </style>
+
+		<form class="form-signin" action="register.php" method="POST">
+              <h2 class="form-signin-heading"><span style="color: #306EFF;">Regístrese</span></h2>
+              <label for="inputUser" class="sr-only">Nombre de usuario</label>
+              <input type="user" name="username" class="form-control" placeholder="Nombre de usuario" required autofocus>
+              <label for="inputPassword" class="sr-only">Contraseña</label>
+              <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+              <label for="inputPassword" class="sr-only">Confirmar contraseña</label>
+              <input type="password" name="repassword" class="form-control" placeholder="Confirmar contraseña" required>
+               <input class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="Register">
+            </form>
+
 <?php
 	require('config.php');
 	$username = @$_POST['username'];
@@ -47,7 +92,7 @@ body {
 			if(mysql_num_rows($check) == 0){
 				if ($repass==$password){
 					if($query= mysql_query("INSERT INTO users (`id`,`username`, `password`) VALUES ('', '".$username."', '".$pass_en."')")){
-						echo "Success";
+						header("Location: index.php");
 					}
 					else{
 					echo "Fail";
@@ -64,9 +109,12 @@ body {
 		else{
 			echo "Complete todos los campos";
 		}
-		
+		#header("Location: index.php");
 	}
 ?>
+	</body>
+</html>
+
 <!--if (strlen($username) >= 5 && strlen($username) =<25 && strlen($password) > 6)
 		}
 		else{
