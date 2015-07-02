@@ -25,29 +25,16 @@ body {
 }
 </style>
 
-<body>
- <?php
-  require ('config.php');
-  $op=$_POST['dato'];
-  $buscar=$_POST['searchby'];
-  $registro = mysql_query("SELECT * FROM libros WHERE $buscar='".$op."'" );
-  if(mysql_num_rows($registro)){
-  while($reg=mysql_fetch_array($registro)){
-   echo "<br>",$reg['titulo'] ;
-   echo "<br>",$reg['autor'] ;
-   echo "<br>",$reg['categoria'] ;
-   echo "<br>",$reg['descripcion'] ;
-   if ($reg['cantidad'] && $_SESSION['username']) {
-    ?>
-    <html>
-    <br>
-  <a href="buybook.php?nombre=<?php echo $reg['titulo'] ?> ">Comprar</a>
-</html>
+
+<h1>Libro comprado papwa</h1>
+
+
+<h3><a href="index.php">Volver al inicio</a></h3>
 <?php
-   }
-  }
-  }
-  else
-  	echo "No existe ese libro papwa";
+
 ?>
+
+
 </body>
+
+</html>

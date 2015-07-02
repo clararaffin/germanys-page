@@ -27,6 +27,8 @@ body {
 
 <?php
 
+session_start();
+
 require ('config.php');
 $registro = mysql_query("SELECT * FROM libros") or  die ("No se encontro la base con los libros");
 while($reg=mysql_fetch_array($registro)){
@@ -42,7 +44,7 @@ while($reg=mysql_fetch_array($registro)){
                 <h5> <?php echo $reg['categoria']; ?></h4>
                 <p><?php echo $reg['descripcion']; ?></p>
         <?php
-		if ($_SESSION['username'] && $reg['cantidad']){
+		if ($_SESSION["username"] && $reg['cantidad']){
 		?>
                 <p><a class="btn btn-primary" href="buybook.php?nombre=<?php echo $reg['titulo'] ?>" role="button">Comprar &raquo;</a></p>
               </div>

@@ -53,7 +53,7 @@ if(!$_SESSION['username']){
 
 ?> 
 <html>
-           <li role="presentation"><a href="#register" role="tab" id="register-tab" data-toggle="tab" aria-controls="register">Registrarse</a></li>
+           <li role="presentation"><a href="register.php" role="tab" id="register-tab" data-toggle="tab" aria-controls="register">Registrarse</a></li>
            <li role="presentation"><a href="login.php" role="tab" id="login-tab" >Ingresar</a></li>
 
 </html>
